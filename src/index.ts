@@ -1,1 +1,1 @@
-console.log("Hello PNUD!");
+console.log("Hello, TypeScript");
