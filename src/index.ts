@@ -1,41 +1,26 @@
-let nome: string = "Antonio"
+let a = 5;
 
-let idade = 39
+console.log(5 + 6);
+console.log(5 - 6);
+console.log(5 * 6);
+console.log(5 / 6);
+console.log(5 % 6);
+console.log(5 ** 2);
+console.log(++a);
+console.log(--a);
 
-const ehProfessor: boolean = true
+const pessoa = { nome: "Antonio", idade: 33, ehProfessor: false };
 
-console.log(nome)
-console.log(ehProfessor)
-
-function soma(x: number, y: number): number {
-    return x + y
+for (const chave in pessoa) {
+  console.log(chave);
 }
 
-console.log(soma(5,7))
+const numeros = [1, 2, 3, 4, 5];
 
-function imprimir(nome: string, sobrenome: string) {
-    console.log(`O seu nome é ${nome} ${sobrenome}`)
+for (const n of numeros) {
+  console.log(n);
 }
 
-imprimir('Antonio', 'Medeiros')
-
-const novaSoma = (x: number, y: number): number => { return x + y }
-
-console.log(novaSoma(5,7))
-
-const numeros = [1, 2, 3, 4, 5]
-
-numeros
-    .filter((numero)=>{return numero % 2 == 0})
-    .forEach((numero)=>{console.log(numero)})
-
-import * as readline from 'readline'
-
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-})
-
-rl.question("Por favor digite o seu nome: ", (nome: string) => {
-    console.log(`O seu nome é ${nome}`)
-})
+numeros.forEach((n) => {
+  console.log(n);
+});
