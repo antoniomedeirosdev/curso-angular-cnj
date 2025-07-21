@@ -1,8 +1,5 @@
-import Circle from "./interface/Circle";
-import Triangle from "./interface/Triangle";
+import Professor from "./person/Professor";
 
-const tr = new Triangle(3,8);
-const cr = new Circle(3);
-
-console.log(tr.calculateArea());
-console.log(cr.calculateArea());
+const bruno = new Professor("Bruno", "Lopes", ["Curso Angular", "Programação Funcional"]);
+console.log(bruno.fullName());
+console.log(bruno.subjects);
