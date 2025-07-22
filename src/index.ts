@@ -1,13 +1,25 @@
-import Circle from "./interface/Circle";
-import Shape from "./interface/Shape";
-import Triangle from "./interface/Triangle";
+class Pessoa {
+  nome: string;
+  idade: number;
 
-const tr = new Triangle(3, 8);
-const cr = new Circle(3);
-
-function imprimirArea(shape: Shape) {
-  console.log(shape.calculateArea());
+  constructor(nome: string, idade: number) {
+    this.nome = nome;
+    this.idade = idade;
+  }
 }
 
-imprimirArea(tr);
-imprimirArea(cr);
+const p1 = new Pessoa("bruno", 39);
+
+interface IPessoa {
+  nome: string;
+  idade: number;
+}
+
+const p2: IPessoa = { nome: "bruno", idade: 39 };
+
+function test(p: Pessoa) {
+  console.log(p.nome);
+}
+
+test(p1);
+test(p2);
