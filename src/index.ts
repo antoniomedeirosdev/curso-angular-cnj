@@ -1,8 +1,7 @@
-type Coordenada = {
-  latitude: number;
-  longitude: number;
-};
+function log(target: Foo) {
+  console.log(target);
+  console.log("Olha eu aqui!");
+}
 
-type Resultado = string | null;
-
-const p1: Coordenada = { latitude: 123, longitude: 456 };
+@log
+class Foo {}
