@@ -1,12 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+
+interface Task {
+  name: string;
+}
 
 @Component({
   selector: 'app-todo-list',
   standalone: true,
   imports: [],
   templateUrl: './todo-list.html',
-  styleUrl: './todo-list.css'
+  styleUrl: './todo-list.css',
 })
 export class TodoListComponent {
+  tasks: Task[] = [];
 
+  @ViewChild('todoName') todoInputRef: ElementRef<HTMLInputElement> = null!;
+
+  addTask(name: string) {
+    if (name) {
+      this.tasks.push({ name: name });
+      console.log(name);
+      this.todoInputRef.nativeElement.value = '';
+    }
+  }
 }
