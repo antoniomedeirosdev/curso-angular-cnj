@@ -4,3 +4,6 @@
     <input type="text" name="nome" id="nome" #todoName>
 </div>
 <button (click)="addTask(todoName.value)">Adicionar</button>
+<ul *ngFor="let task of tasks">
+    <li>{{ task.name }}</li>
+</ul>

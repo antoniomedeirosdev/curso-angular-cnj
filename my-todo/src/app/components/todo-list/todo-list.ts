@@ -1,3 +1,4 @@
+import { NgFor } from '@angular/common';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
@@ -8,7 +9,7 @@ interface Task {
 @Component({
   selector: 'app-todo-list',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [NgFor, RouterOutlet],
   templateUrl: './todo-list.html',
   styleUrl: './todo-list.css',
 })
