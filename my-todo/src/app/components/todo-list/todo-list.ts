@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 interface Task {
   name: string;
@@ -7,7 +8,7 @@ interface Task {
 @Component({
   selector: 'app-todo-list',
   standalone: true,
-  imports: [],
+  imports: [RouterOutlet],
   templateUrl: './todo-list.html',
   styleUrl: './todo-list.css',
 })

@@ -1,7 +1,6 @@
-<h1>PNUD Todo List</h1>
+<ng-content select="[title]"></ng-content>
 <div>
-    <label for="nome">Nome</label>
+    <ng-content select="[label]"></ng-content>
     <input type="text" name="nome" id="nome" #todoName>
 </div>
 <button (click)="addTask(todoName.value)">Adicionar</button>
-<p class="foo">todo-list works!</p>
