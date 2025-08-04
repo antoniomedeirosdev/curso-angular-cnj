@@ -1,3 +1,60 @@
-.foo {
-    font-size: 50px;
+.container {
+    margin: auto;
+    width: 50%;
+    padding: 1rem;
+    background-color: white;
+}
+
+label {
+    display: block;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type="text"]:focus {
+    background: #ddd;
+    outline: none;
+}
+
+input[type="text"]:hover {
+    opacity: 1;
+}
+
+input [type="button"], button {
+    background-color: #04aa6d;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px;
+    cursor: pointer;
+    width: 30%;
+    opacity: 0.9;
+}
+
+input[type="button"]:hover, button:hover {
+    opacity: 1;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    font-size: 20px;
+    background: #c1c1c1;
+    padding: 10px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+ul li:hover {
+    background: #a1a1a1;
 }
