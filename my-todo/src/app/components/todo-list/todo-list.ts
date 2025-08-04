@@ -1,4 +1,4 @@
-import { NgFor } from '@angular/common';
+import { NgIf, NgFor } from '@angular/common';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
@@ -9,7 +9,7 @@ interface Task {
 @Component({
   selector: 'app-todo-list',
   standalone: true,
-  imports: [NgFor, RouterOutlet],
+  imports: [NgIf, NgFor, RouterOutlet],
   templateUrl: './todo-list.html',
   styleUrl: './todo-list.css',
 })
@@ -24,5 +24,9 @@ export class TodoListComponent {
       console.log(name);
       this.todoInputRef.nativeElement.value = '';
     }
+  }
+
+  removeTask() {
+    this.tasks.pop();
   }
 }
