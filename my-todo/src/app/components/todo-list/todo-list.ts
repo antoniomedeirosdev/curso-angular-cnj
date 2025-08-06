@@ -30,13 +30,29 @@ export class TodoListComponent {
 
   addTask(name: string) {
     if (name) {
-      this.tasks.push({ id: uuidv4(), name: name });
-      console.log(name);
-      this.todoInputRef.nativeElement.value = '';
+      this.http.post('http://localhost:3000/tasks', { id: uuidv4(), name})
+        .toPromise()
+        .then((response) => {
+          console.log(response);
+          this.loadTasks();
+          this.todoInputRef.nativeElement.value = '';
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   }
 
-  removeTask() {
+  removeTask(id: string) {
+    this.http.delete(`http://localhost:3000/tasks/${id}`)
+      .toPromise()
+      .then((response) => {
+        console.log(response);
+        this.loadTasks();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     this.tasks.pop();
   }
 
@@ -44,7 +60,7 @@ export class TodoListComponent {
     this.http.get<Task[]>('http://localhost:3000/tasks')
       .toPromise()
       .then((response) => {
-        console.log(response);
+        this.tasks = response!;
       })
       .catch((error) => {
         console.log(error);
