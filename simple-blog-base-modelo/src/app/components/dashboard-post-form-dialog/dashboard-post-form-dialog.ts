@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { MatDialogModule } from '@angular/material/dialog'
 import { MatFormFieldModule } from '@angular/material/form-field'
@@ -9,27 +8,25 @@ import { MatButtonModule } from '@angular/material/button'
 
 @Component({
   selector: 'app-dashboard-post-form-dialog',
-  imports: [FormsModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatButtonModule],
+  imports: [
+    ReactiveFormsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
+  ],
   templateUrl: './dashboard-post-form-dialog.html',
   styleUrl: './dashboard-post-form-dialog.css'
 })
 export class DashboardPostFormDialog {
+  postForm = new FormGroup({
+    author: new FormControl('', Validators.required),
+    title: new FormControl('', Validators.required),
+    date: new FormControl('', Validators.required),
+    content: new FormControl('', Validators.required)
+  })
 
-  author: string = '';
-  title: string = '';
-  date: string = '';
-  content: string = '';
-
-  ngOnInit() {
-    // Pesquisar na API
-    this.author = 'Bruno Lopes';
+  onSubmit() {
+    console.log(this.postForm.value)
   }
-
-  onSubmit(postForm: NgForm) {
-    console.log(this.author);
-    console.log(this.title);
-    console.log(this.date);
-    console.log(this.content);
-  }
-
 }
