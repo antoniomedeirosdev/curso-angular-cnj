@@ -4,22 +4,22 @@
         <form #postForm="ngForm" (ngSubmit)="onSubmit(postForm)">
             <mat-form-field>
                 <mat-label>Autor</mat-label>
-                <input matInput name="author" ngModel required>
+                <input matInput name="author" [(ngModel)]="author" required>
                 <mat-error>Você deve escrever o nome do autor</mat-error>
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Título</mat-label>
-                <input matInput name="title" ngModel required>
+                <input matInput name="title" [(ngModel)]="title" required>
                 <mat-error>Você deve escrever o título da postagem</mat-error>
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Data</mat-label>
-                <input matInput name="date" ngModel required>
+                <input matInput name="date" [(ngModel)]="date" required>
                 <mat-error>Você deve selecionar uma data</mat-error>
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Conteúdo</mat-label>
-                <textarea matInput rows="10" name="content" ngModel required></textarea>
+                <textarea matInput rows="10" name="content" [(ngModel)]="content" required></textarea>
                 <mat-error>Você deve escrever um conteúdo</mat-error>
             </mat-form-field>
             <button mat-flat-button [disabled]="!postForm.form.valid">Salvar</button>

@@ -15,13 +15,21 @@ import { MatButtonModule } from '@angular/material/button'
 })
 export class DashboardPostFormDialog {
 
-  onSubmit(postForm: NgForm) {
-    const author = postForm.form.value.author;
-    const title = postForm.form.value.title;
-    const date = postForm.form.value.date;
-    const content = postForm.form.value.content;
+  author: string = '';
+  title: string = '';
+  date: string = '';
+  content: string = '';
 
-    console.log(`${author} ${title} ${date} ${content}`)
+  ngOnInit() {
+    // Pesquisar na API
+    this.author = 'Bruno Lopes';
+  }
+
+  onSubmit(postForm: NgForm) {
+    console.log(this.author);
+    console.log(this.title);
+    console.log(this.date);
+    console.log(this.content);
   }
 
 }
