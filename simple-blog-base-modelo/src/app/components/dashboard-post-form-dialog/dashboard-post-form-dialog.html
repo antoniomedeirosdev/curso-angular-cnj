@@ -14,7 +14,10 @@
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Data</mat-label>
-                <input matInput name="date" formControlName="date">
+                <input matInput [matDatepicker]="picker" name="date" formControlName="date">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
                 <mat-error>Você deve selecionar uma data</mat-error>
             </mat-form-field>
             <mat-form-field>

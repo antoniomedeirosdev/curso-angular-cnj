@@ -5,6 +5,7 @@ import { MatDialogModule } from '@angular/material/dialog'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatButtonModule } from '@angular/material/button'
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-dashboard-post-form-dialog',
@@ -13,7 +14,8 @@ import { MatButtonModule } from '@angular/material/button'
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDatepickerModule
   ],
   templateUrl: './dashboard-post-form-dialog.html',
   styleUrl: './dashboard-post-form-dialog.css'
