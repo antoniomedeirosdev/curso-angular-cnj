@@ -16,10 +16,17 @@
     },
     {
       "id": "6191210a-7bb9-4403-a90e-6b764a030d13",
-      "author": "Bruno Lopes",
+      "author": "Bruno Batista",
       "title": "Mais um teste",
       "date": "2025-08-11T00:31:26.813-03:00",
       "content": "Recarregar postagens após salvar nova postagem"
+    },
+    {
+      "id": "b7945ed3-c7c6-4a08-9d4c-c139ad38ef7f",
+      "author": "Bruno Lopes",
+      "title": "Curso Angular - Aula 10 - Parte 03",
+      "date": "2025-08-11T01:12:36.344-03:00",
+      "content": "Observables"
     }
   ]
 }

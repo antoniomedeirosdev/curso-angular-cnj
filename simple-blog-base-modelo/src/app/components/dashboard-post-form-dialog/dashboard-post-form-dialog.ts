@@ -29,12 +29,6 @@ export class DashboardPostFormDialog {
   formTitle = 'Nova Postagem'
   submitButtonLabel = 'Salvar'
 
-  constructor(
-    private postService: PostService,
-    private dialogRef: DialogRef<DashboardPostFormDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: { id: string }
-  ){}
-
   postForm = new FormGroup({
     author: new FormControl('', Validators.required),
     title: new FormControl('', Validators.required),
@@ -42,10 +36,25 @@ export class DashboardPostFormDialog {
     content: new FormControl('', Validators.required)
   })
 
+  constructor(
+    private postService: PostService,
+    private dialogRef: DialogRef<DashboardPostFormDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: { id: string }
+  ){}
+
   ngOnInit() {
     if (this.data) {
+      console.log(this.data)
       this.formTitle = 'Editar postagem'
       this.submitButtonLabel = 'Editar'
+      this.postService.findPostById(this.data.id).subscribe((post) => {
+        this.postForm.setValue({
+          author: post.author,
+          date: post.date,
+          title: post.title,
+          content: post.content
+        });
+      });
     }
   }
 
@@ -54,11 +63,19 @@ export class DashboardPostFormDialog {
     const title = this.postForm.value.title!!
     const date = this.postForm.value.date!!
     const content = this.postForm.value.content!!
-    
-    const post = new Post(uuidv4(), author, title, date, content)
-    this.postService.createPost(post)
 
-    console.log(this.postForm.value)
-    this.dialogRef.close()
+    if (this.data) {
+      const post = new Post(this.data.id, author, title, date, content)
+      this.postService.updatePost(post).subscribe(() => {
+        this.dialogRef.close();
+      });
+    } else {
+      const post = new Post(uuidv4(), author, title, date, content)
+      this.postService.createPost(post).subscribe(() => {
+        this.dialogRef.close();
+      });
+    }
+    
+    
   }
 }

@@ -34,7 +34,9 @@ export class DashboardPostTab {
   }
 
   openEditPostFormDialog(id: string) {
-    const dialogRef = this.dialog.open(DashboardPostFormDialog, { id });
+    const dialogRef = this.dialog.open(DashboardPostFormDialog, {
+      data: { id }
+    });
     dialogRef.afterClosed().subscribe((result) => {
       this.loadPosts()
       console.log(result)
@@ -42,12 +44,13 @@ export class DashboardPostTab {
   }
 
   loadPosts() {
-    this.postService.findAll()
-    .then((response) => {
-      this.posts = response
-    })
-    .catch((error) => {
-      console.log(error)
+    this.postService.findAll().subscribe({
+      next: (response) => {
+        this.posts = response;
+      },
+      error: (error) => {
+        console.log(error);
+      }
     });
   }
 }
