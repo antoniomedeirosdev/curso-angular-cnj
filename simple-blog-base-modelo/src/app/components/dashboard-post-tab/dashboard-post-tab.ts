@@ -6,14 +6,13 @@ import { DashboardPostFormDialog } from '../dashboard-post-form-dialog/dashboard
 import { PostService } from '../../services/post.service';
 import { PostDeleteDialog } from '../post-delete-dialog/post-delete-dialog';
 
-import { MatTableModule } from '@angular/material/table';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
+
+import { DashboardModule } from '../../modules/dashboard/dashboard-module';
 
 @Component({
   selector: 'app-dashboard-post-tab',
-  imports: [DatePipe, MatTableModule, MatButtonModule, MatIconModule],
+  imports: [DatePipe, DashboardModule],
   templateUrl: './dashboard-post-tab.html',
   styleUrl: './dashboard-post-tab.css',
 })
