@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
-import { MatDialogModule } from '@angular/material/dialog'
+import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatButtonModule } from '@angular/material/button'
@@ -26,9 +26,13 @@ import { DateTime } from 'luxon';
   styleUrl: './dashboard-post-form-dialog.css'
 })
 export class DashboardPostFormDialog {
+  formTitle = 'Nova Postagem'
+  submitButtonLabel = 'Salvar'
+
   constructor(
     private postService: PostService,
-    private dialogRef: DialogRef<DashboardPostFormDialog>
+    private dialogRef: DialogRef<DashboardPostFormDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: { id: string }
   ){}
 
   postForm = new FormGroup({
@@ -37,6 +41,13 @@ export class DashboardPostFormDialog {
     date: new FormControl(DateTime.now(), Validators.required),
     content: new FormControl('', Validators.required)
   })
+
+  ngOnInit() {
+    if (this.data) {
+      this.formTitle = 'Editar postagem'
+      this.submitButtonLabel = 'Editar'
+    }
+  }
 
   onSubmit() {
     const author = this.postForm.value.author!!
